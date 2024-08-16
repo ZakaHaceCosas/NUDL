@@ -1,0 +1,314 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+* {
+    font-family: 'Atkinson Hyperlegible', sans-serif!important;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+    transition: all 300ms ease;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    color: white;
+}
+
+:root {
+    --appwidth: 1040px;
+    --appbg: rgba(36, 36, 36, 0.8);
+    --aspectratio: 16/9;
+    --construct: url('construct.png');
+    --noise: url('noise.png');
+
+    --winborderradius: 20px;
+    
+    --containedpngsize: 20px;
+
+    --regularpadding: 10px;
+    --regulargap: 10px;
+    --bigpadding: 15px;
+    --biggap: 15px;
+    --smallpading: 5px;
+    --smallgap: 5px;
+    --buttonsize: 36px;
+    --regularborderradius: 10px;
+    --kindaregularvalue: 12px;
+
+    --hyperlink: rgba(64, 140, 195, 1);
+    --hyperlink75: rgba(64, 140, 195, .75);
+    --hyperlink50: rgba(64, 140, 195, .50);
+    --hyperlink25: rgba(64, 140, 195, .25);
+    --accent: rgba(1, 102, 175, 1);
+    --accent75: rgba(1, 102, 175, .75);
+    --accent50: rgba(1, 102, 175, .50);
+    --accent25: rgba(1, 102, 175, .25);
+
+    --notsodark: rgba(0, 0, 0, .1);
+    --nottoodark: rgba(0, 0, 0, .15);
+    --darker: rgba(0, 0, 0, .25);
+    --dark: rgba(0, 0, 0, .3);
+
+    --notsolight: rgba(255, 255, 255, .1);
+    --light: rgba(255, 255, 255, .25);
+    --lighter: rgba(255, 255, 255, .3);
+
+    --regboxshadow: 0px 5px 25px 0px;
+    --liteboxshadow: 0px 2.5px 15px 0px;
+
+    --sidebarwidth: 25%;
+    --contentwidth: 75%;
+
+    --activetabwidth: 66%;
+    --activetabseparatorwidth: 65%;
+
+    --blur: 5px;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-image: var(--construct);
+    background-color: #000;
+    background-position: center;
+    background-size: cover;
+}
+
+app {
+    background-color: var(--appbg);
+    background-image: var(--noise);
+    width: var(--appwidth);
+    aspect-ratio: var(--aspectratio);
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: var(--regboxshadow) var(--darker);
+    /*backdrop-filter: blur(80px);*/
+    border-radius: var(--winborderradius);
+    border: 1px solid var(--lighter);
+    overflow: hidden;
+}
+
+.appshadow {
+    border-radius: var(--winborderradius);
+    overflow: hidden;
+    width: var(--appwidth);
+    aspect-ratio: var(--aspectratio);
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+    backdrop-filter: blur(var(--blur));
+}
+
+sidebar {
+    width: var(--sidebarwidth);
+    display: flex;
+    flex-direction: column;
+    padding: var(--regularpadding);
+    gap: var(--biggap);
+}
+
+windowcontrols {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+button.squared-icon-btn {
+    width: var(--buttonsize);
+    height: var(--buttonsize);
+    border-radius: var(--regularborderradius);
+    background-color: var(--notsolight);
+    display: grid;
+    place-content: center;
+    place-items: center;
+    cursor: pointer;
+}
+
+button.sib-nonbg {
+    background-color: transparent;
+}
+
+button.squared-icon-btn:hover {
+    background-color: var(--lighter);
+    box-shadow: var(--liteboxshadow) var(--nottoodark)
+}
+
+img.sib-containedpng {
+    width: var(--containedpngsize);
+    height: var(--containedpngsize);
+    object-fit: cover;
+    border-radius: 99999px;
+}
+
+.verticalseparator {
+    width: 1px;
+    height: var(--kindaregularvalue);
+    background-color: var(--light);
+    border-radius: 100px;
+}
+
+.button-array-vertical-fortop {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--smallgap);
+}
+
+options {
+    display: flex;
+    flex-direction: column;
+    gap: var(--regulargap);
+}
+
+.anoption {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    background-color: transparent;
+    border-radius: var(--regularborderradius);
+    gap: var(--regulargap);
+    padding: var(--regularpadding);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.anoption:hover {
+    background-color: var(--light);
+    box-shadow: var(--liteboxshadow) var(--nottoodark)
+}
+
+.anoption-inuse {
+    background-color: var(--accent);
+    font-weight: 700;
+    box-shadow: var(--regboxshadow) var(--hyperlink25);
+}
+
+.anoption-inuse:hover {
+    background-color: var(--hyperlink);
+    box-shadow: var(--liteboxshadow) var(--accent50)
+}
+
+optionslabel {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: var(--regulargap);
+    font-weight: 700;
+    font-size: 14px;
+}
+
+optionslabel .line {
+    width: 100%;
+    height: 1px;
+    background-color: var(--darker);
+}
+
+content {
+    width: var(--contentwidth);
+    background-color: var(--darker);
+    padding: var(--regularpadding);
+    display: flex;
+    flex-direction: column;
+    gap: var(--biggap);
+}
+
+actionbar {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: var(--regulargap);
+}
+
+tabs {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: var(--smallgap);
+}
+
+tab {
+    border-radius: var(--regularborderradius);
+    height: var(--buttonsize);
+    width: fit-content;
+    padding-left: var(--kindaregularvalue);
+    background-color: var(--notsolight);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: var(--kindaregularvalue);
+    align-items: center;
+    justify-content: start;
+}
+
+tab:hover {
+    background-color: var(--light);
+    box-shadow: var(--liteboxshadow) var(--nottoodark)
+}
+
+tab.activetab {
+    width: var(--activetabwidth);
+    background-color: var(--accent);
+    box-shadow: var(--regboxshadow) var(--accent25);
+}
+
+tab.activetab .p1 {
+    font-weight: 700;
+}
+
+tab.activetab .separator {
+    width: var(--activetabseparatorwidth);
+}
+
+tab.activetab:hover {
+    background-color: var(--hyperlink);
+    box-shadow: var(--liteboxshadow) var(--accent50)
+}
+
+tab.activetab:hover .close, tab.activetab .close:hover {
+    opacity: 1;
+}
+
+tab.activetab .close {
+    opacity: 0;
+    width: var(--buttonsize);
+    height: var(--buttonsize);
+}
+
+#broclosedwin {
+    background-image: linear-gradient(to bottom, peru, black, peru);
+    width: 50%;
+    aspect-ratio: var(--aspectratio);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: var(--regboxshadow) var(--darker);
+    /*backdrop-filter: blur(80px);*/
+    border-radius: var(--winborderradius);
+    border: 1px solid var(--lighter);
+    overflow: hidden;
+}
